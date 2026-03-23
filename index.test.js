@@ -6,6 +6,6 @@ describe('sum of two numbers', () => {
         expect(5 + 7).toBe(12);
     });
     test('adds -1 + 1 to equal 0', () => {
-        expect(-1 + 0).toBe(0);
+        expect(-1 + 1).toBe(0);
     });
 });
