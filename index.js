@@ -15,7 +15,7 @@ app.get("/players", (req,res)=>{
 });
 
 app.get("/", (req, res) => {
-    res.send("<h2>Welcome to the Home Page</h2>");
+    res.send("<h2 style='color: blue;'>Welcome to the Home Page</h2>");
 });
 
 app.listen(PORT, ()=>{
