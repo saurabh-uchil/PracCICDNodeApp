@@ -5,11 +5,16 @@ phases:
   install:
     commands:
       - npm install
+  pre_build:
+    commands:
+    - echo "Listing files:"
+    - ls -R
+    - pwd
   build:
     commands:
       - echo "Build started on `date`"
       - echo "Build step (optional for Node.js)"
-      - grep -fq "Welcome to the Home" public/home.html
+      - grep -fq "Welcome to the Home Page" public/home.html
   post_build:
     commands:
       - echo "Ready to deploy"
