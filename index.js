@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const path = require('path');
+
+app.use(express.static('public'));
+app.use(express.json());
 
 const players = [
     {id: 1, name: "Cristiano Ronaldo", team: "Al-Nassr"},
@@ -24,8 +28,18 @@ app.get("/players/:id", (req,res)=>{
     }
 });
 
+app.post("/players", (req,res)=>{
+    const newPlayer = {
+        id: players.length + 1,
+        name: req.body.name,
+        team: req.body.team
+    };
+    players.push(newPlayer);
+    res.status(201).json(newPlayer);
+});
+
 app.get("/", (req, res) => {
-    res.send("<h2 style='color: blue;'>Welcome to the Home Page</h2>");
+    res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
 app.listen(PORT, ()=>{
