@@ -1,0 +1,15 @@
+# buildspec.yml
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+  build:
+    commands:
+      - echo "Build started on `date`"
+      - echo "Build step (optional for Node.js)"
+      - grep -fq "Welcome to the Second" public/home.html
+  post_build:
+    commands:
+      - echo "Ready to deploy"
