@@ -14,6 +14,16 @@ app.get("/players", (req,res)=>{
     res.json(players);
 });
 
+app.get("/players/:id", (req,res)=>{
+    const playerId = parseInt(req.params.id);
+    const player = players.find(p => p.id === playerId);
+    if (player) {
+        res.json(player);
+    } else {
+        res.status(404).send("Player not found");
+    }
+});
+
 app.get("/", (req, res) => {
     res.send("<h2 style='color: blue;'>Welcome to the Home Page</h2>");
 });
