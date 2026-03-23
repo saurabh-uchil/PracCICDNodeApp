@@ -14,7 +14,7 @@ phases:
     commands:
       - echo "Build started on `date`"
       - echo "Build step (optional for Node.js)"
-      - grep -fq "Welcome to the Home Page" public/home.html
+      - grep -fq "Welcome to the Home Page" ./public/home.html
   post_build:
     commands:
       - echo "Ready to deploy"
